@@ -1,0 +1,95 @@
+/* ─── Import Tailwind CSS v4 ─── */
+@import "tailwindcss";
+
+/* ─── Animations utilitaires personnalisées SCIM ─── */
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Effet de brillance utilisable sur les cartes skeleton */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+
+/* Entrée douce depuis le bas */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease both;
+}
+
+/* Pulsation subtile pour les badges CTA */
+@keyframes gentle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.35); }
+  50%       { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+}
+
+.animate-cta-pulse {
+  animation: gentle-pulse 2.4s ease infinite;
+}
+
+/* Scroll horizontal fluide pour les carrousels */
+.scroll-smooth-x {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.scroll-smooth-x::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respect des préférences système de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-effect::after,
+  .animate-fade-in-up,
+  .animate-cta-pulse {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Ligne de progression animée (utilisée dans Studio) */
+/* Animation panoramique lente pour les sliders */
+@keyframes slow-pan {
+  0%   { transform: scale(1) translateX(0); }
+  50%  { transform: scale(1.1) translateX(-1%); }
+  100% { transform: scale(1) translateX(0); }
+}
+
+.animate-slow-pan {
+  animation: slow-pan 20s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progress-fill 0.4s ease forwards;
+}
