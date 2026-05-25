@@ -27,8 +27,8 @@ const Home: React.FC = () => {
   return (
     <div>
       <SEO
-        title="Expert en Ingénierie Métallique & Industrie Lourde au Cameroun"
-        description="La SCIM est le leader de la construction métallique, chaudronnerie et maintenance industrielle au Cameroun. Découvrez nos solutions techniques certifiées."
+        title="Ingénierie Métallique Lourde & Industrielle au Cameroun"
+        description="Ingénierie métallique lourde et industrielle. SCIM conçoit, fabrique et déploie des infrastructures critiques pour les secteurs pétrolier, minier et BTP au Cameroun."
         canonical="/"
       />
 
@@ -47,8 +47,8 @@ const Home: React.FC = () => {
               Expert de référence au Cameroun
             </motion.span>
             <div className="text-5xl md:text-7xl font-black leading-[1.1] mb-8 uppercase tracking-tighter overflow-hidden">
-              <TextReveal text="Ingénierie Métallique &" delay={0.2} />
-              <div className="text-orange-600"><TextReveal text="Industrie Lourde" delay={0.5} /></div>
+              <TextReveal text="Ingénierie Métallique" delay={0.2} />
+              <div className="text-orange-600"><TextReveal text="Lourde & Industrielle" delay={0.5} /></div>
             </div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
               transition={{ duration: 1, delay: 0.4 }}
               className="text-xl md:text-2xl text-slate-300 mb-12 font-light max-w-2xl leading-relaxed border-l-4 border-orange-600 pl-8"
             >
-              La SCIM conçoit, fabrique et déploie les infrastructures critiques pour les secteurs pétrolier, minier et BTP au Cameroun.
+              SCIM conçoit, fabrique et déploie des infrastructures critiques pour les secteurs pétrolier, minier et BTP au Cameroun.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
