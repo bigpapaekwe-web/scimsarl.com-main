@@ -1,10 +1,11 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { CONTACT_INFO } from '../constants';
 
 const FloatingWhatsApp: React.FC = () => {
-  const phoneNumber = "237600000000"; // Placeholder phone number
-  const message = "Bonjour, je souhaite avoir plus d'informations sur vos services.";
+  const phoneNumber = CONTACT_INFO.phones[0].replace(/[\s+]/g, '');
+  const message = "Bonjour, je souhaite avoir plus d'informations sur vos services SCIM.";
   
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

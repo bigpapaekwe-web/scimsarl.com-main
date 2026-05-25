@@ -145,10 +145,9 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, projectFile: file }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate all fields
     const newErrors: FormErrors = {};
     let isValid = true;
 
@@ -169,8 +168,31 @@ const Contact: React.FC = () => {
     if (!isValid) return;
 
     setIsSubmitting(true);
-    // Simulation d'envoi API
-    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    const subject = `Demande de devis — ${formData.projectType} | ${formData.company}`;
+    const body = [
+      `=== DEMANDE DE DEVIS SCIM ===`,
+      ``,
+      `CONTACT`,
+      `Responsable : ${formData.fullName}`,
+      `Entreprise  : ${formData.company}`,
+      `Téléphone   : ${formData.phoneNumber}`,
+      `Email       : ${formData.email}`,
+      ``,
+      `PROJET`,
+      `Secteur     : ${formData.sector}`,
+      `Ouvrage     : ${formData.projectType}`,
+      `Budget      : ${formData.budget}`,
+      ``,
+      `DESCRIPTION`,
+      formData.description,
+      ``,
+      formData.projectFile ? `Fichier joint : ${formData.projectFile.name} (à envoyer en réponse)` : `Aucun fichier joint.`,
+    ].join('\n');
+
+    const mailtoLink = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
@@ -210,9 +232,9 @@ const Contact: React.FC = () => {
           <div className="w-24 h-24 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-8 border border-orange-100">
             <CheckCircle2 className="w-12 h-12 text-orange-600" />
           </div>
-          <h2 className="text-3xl font-black text-slate-950 mb-4 uppercase tracking-tighter">Dossier Transmis</h2>
+          <h2 className="text-3xl font-black text-slate-950 mb-4 uppercase tracking-tighter">Dossier Prêt à Envoyer</h2>
           <p className="text-slate-600 mb-10 leading-relaxed font-light text-lg">
-            Votre demande technique pour <strong>{formData.company}</strong> a été transmise à notre bureau d'études. Nous reviendrons vers vous sous 48h ouvrées.
+            Votre client de messagerie s'est ouvert avec les détails du projet <strong>{formData.company}</strong> pré-remplis. Envoyez l'email pour transmettre votre dossier au bureau d'études SCIM.
           </p>
           <button
             onClick={() => {
@@ -507,7 +529,7 @@ const Contact: React.FC = () => {
                       disabled={isSubmitting}
                       className="w-full bg-slate-950 hover:bg-slate-900 text-white font-black uppercase tracking-[0.3em] text-[11px] py-6 rounded-2xl transition-all flex items-center justify-center shadow-2xl hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:pointer-events-none"
                     >
-                      {isSubmitting ? "Traitement du dossier..." : <>Transmettre au Bureau d'Études <Send className="ml-4 w-4 h-4" /></>}
+                      {isSubmitting ? "Préparation du dossier..." : <>Transmettre au Bureau d'Études <Send className="ml-4 w-4 h-4" /></>}
                     </button>
                   </div>
                 </form>
