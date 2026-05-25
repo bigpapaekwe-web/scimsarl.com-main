@@ -29,6 +29,7 @@ const Home: React.FC = () => {
       <SEO
         title="Expert en Ingénierie Métallique & Industrie Lourde au Cameroun"
         description="La SCIM est le leader de la construction métallique, chaudronnerie et maintenance industrielle au Cameroun. Découvrez nos solutions techniques certifiées."
+        canonical="/"
       />
 
       {/* ─── Section 1 : Héros ─── */}

@@ -7,9 +7,10 @@ import TextReveal from '../components/TextReveal';
 const About: React.FC = () => {
   return (
     <div className="bg-white">
-      <SEO 
+      <SEO
         title="À Propos de la SCIM | Expertise Panafricaine en Métallurgie"
         description="Découvrez l'histoire, la vision et l'expertise de la Société Camerounaise des Ingénieries Métalliques. Plus de 20 ans d'expérience au service de l'industrie."
+        canonical="/a-propos"
       />
       {/* Header Institutionnel */}
       <div className="bg-slate-950 py-32 relative overflow-hidden">

@@ -19,9 +19,10 @@ const Certifications: React.FC = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      <SEO 
+      <SEO
         title="Certifications & Standards de Qualité | SCIM Cameroun"
         description="La SCIM s'engage pour l'excellence à travers des certifications internationales : ISO 9001, ISO 45001, ASME, API. Découvrez nos standards de qualité et de sécurité."
+        canonical="/certifications"
       />
       
       {/* Hero Section */}

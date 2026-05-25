@@ -5,36 +5,38 @@ import { Helmet } from 'react-helmet-async';
 interface SEOProps {
   title: string;
   description: string;
-  canonical?: string;
+  canonical: string;
   ogType?: string;
   ogImage?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
-  canonical, 
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  canonical,
   ogType = 'website',
-  ogImage = 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
+  ogImage = 'https://scimsarl.com/welder.png',
 }) => {
   const siteName = "SCIM | Société Camerounaise des Ingénieries Métalliques";
   const fullTitle = `${title} | ${siteName}`;
-  
+  const canonicalUrl = `https://scimsarl.com${canonical}`;
+
   return (
     <Helmet>
-      {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {canonical && <link rel="canonical" href={canonical} />}
-      
-      {/* Open Graph tags */}
+      <link rel="canonical" href={canonicalUrl} />
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="fr" />
+
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={siteName} />
-      
-      {/* Twitter Card tags */}
+      <meta property="og:locale" content="fr_CM" />
+
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />

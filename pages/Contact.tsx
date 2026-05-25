@@ -267,6 +267,7 @@ const Contact: React.FC = () => {
       <SEO
         title="Contactez Notre Bureau d'Études | Devis & Études Techniques"
         description="Soumettez votre projet industriel à la SCIM. Notre bureau d'études qualifie vos besoins en construction métallique et maintenance sous 48h au Cameroun."
+        canonical="/contact"
       />
       <div className="bg-slate-950 py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>

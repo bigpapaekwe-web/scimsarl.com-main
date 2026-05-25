@@ -188,6 +188,7 @@ const Projects: React.FC = () => {
       <SEO
         title="Nos Réalisations | Portfolio de Projets Métalliques au Cameroun"
         description="Explorez les projets marquants de la SCIM : hangars industriels, réseaux de tuyauterie, maintenance offshore et chaudronnerie lourde à travers le Cameroun."
+        canonical="/realisations"
       />
 
       {/* Hero Header Slider */}

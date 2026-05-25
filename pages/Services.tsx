@@ -17,6 +17,7 @@ const Services: React.FC = () => {
       <SEO
         title="Nos Services Industriels | Construction & Maintenance Métallique"
         description="Découvrez nos solutions en construction métallique, chaudronnerie, tuyauterie et maintenance industrielle au Cameroun. Expertise certifiée et précision technique."
+        canonical="/services"
       />
       {/* Page Header */}
       <div className="bg-slate-900 py-28 relative overflow-hidden">
